@@ -4,6 +4,7 @@
 2. `Команда -> Значение` — Передача параметра в команду. Используется, когда нужно передать параметр напрямую в команду (смена скорости, запись в переменные и тд)
 3. `Команда: Значение` — Использование параметра. Используется, когда нужно передать параметр на метки, фон или различные обьекты.
 4. `Многострочные блоки` — Название пишется с одним табом, а все его свойства перечисляются ниже с двумя табами `Свойство -> Значение`
+5. Код выполняется по блокам друг за другом.
 
 ### 1. Диалоги / Настройки
 * **Показать текст**: `Show: "Имя/HEX-Цвет"`<br>Пример: `Show: "Алиса/#FF8900FF" -> "Привет, $(player_name)!"`
@@ -70,3 +71,44 @@ ShowChoiceButton:
 * `<matrix>` - бегущая волная ярко-зелёного свечения
 * `<drunk>` - буквы плавно кружатся по овальной орбите
 * `<pulse>` - пульсирующее увеличение и уменьшение размера букв
+
+### 7. Пример кода
+```
+init:
+	ChangeTextSpeed -> 10000
+	SetVar: counter -> 0
+	Character: alice ->
+		Sprite -> Alice/Normal
+		Position -> 0
+	Background: ext_square_day
+	GoTo: start
+
+start:
+	Show: "Алиса/#FF8900FF" -> "У вас <color=orange>$(counter)</color> денег."
+
+buttons:
+	MoveCharacter: alice ->
+		Position -> 0
+		MoveType -> Momental
+	ShowChoiceButton:
+		"Добавить 100 денег" -> "add100money"
+		"Убавить 100 денег" -> "delete100money"
+
+add100money:
+	AddInt: counter -> 100
+	CharacterEmotion: alice -> "Alice/Grin"
+	MoveCharacter: alice ->
+		Position -> -15
+		MoveType -> Linear
+		MoveSpeed -> 5
+	GoTo: start
+
+delete100money:
+	AddInt: counter -> -100
+	CharacterEmotion: alice -> "Alice/Sad"
+	MoveCharacter: alice ->
+		Position -> 15
+		MoveType -> Lerped
+		MoveSpeed -> 5
+	GoTo: start
+```
