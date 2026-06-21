@@ -276,7 +276,49 @@ ShowChoiceButton:
   ```
 ---
 
-## 🚀 10. Полный пример готового скрипта
+## 🖥 10. WinApi функции
+
+Команды этой группы позволяют вызывать нативные системные окна Windows напрямую из сценария игры. Это полезно для вывода критических уведомлений, отладки или создания специфических мета-игровых моментов (хоррор-элементы, обращение к игроку).
+
+> [!IMPORTANT]
+> Данные команды работают **только на платформе Windows**. На других операционных системах они будут автоматически пропущены движком. Вызов диалоговых окон происходит асинхронно и **не фризит** основной поток игры (графика, музыка и анимации продолжают работать).
+
+* **Вызов системного окна (`_WinApi_MessageBox`):**<br>
+  `_WinApi_MessageBox -> [ID_Окна] -> [Заголовок] -> [Текст_Сообщения] -> [Тип_Кнопок] -> [Иконка]`
+
+  *Доступные типы кнопок (`Buttons`):*<br>
+  `OK`, `OKCancel`, `AbortRetryIgnore`, `YesNoCancel`, `YesNo`, `RetryCancel`, `CancelTryAgainContinue`
+  
+  *Доступные иконки (`Icons`):*<br>
+  `None`, `Error`, `Question`, `Warning`, `Information`
+
+* **Обработка результата нажатия (`_WinApi_MessageBoxResult`):**<br>
+  `_WinApi_MessageBoxResult: [ID_Окна] -> [Ожидаемая_Кнопка]`
+
+  *Доступные варианты кнопок для проверки:*<br>
+  `OK`, `Cancel`, `Abort`, `Retry`, `Ignore`, `Yes`, `No`, `TryAgain`, `Continue`
+
+### 📋 Пример использования
+
+```text
+_WinApi_MessageBox -> test_box -> Внимание! -> Ты уверен? -> YesNo -> Question
+
+_WinApi_MessageBoxResult: test_box -> Yes
+	GoTo: clicked_yes
+GoTo: clicked_no
+```
+```text
+_WinApi_MessageBox -> test_box -> Внимание! -> Ты уверен? -> YesNoCancel -> Question
+
+_WinApi_MessageBoxResult: test_box -> Yes
+	GoTo: clicked_yes
+_WinApi_MessageBoxResult: test_box -> No
+	GoTo: clicked_no
+GoTo: clicked_cancel
+```
+
+
+## 🚀 11. Полный пример готового скрипта
 
 ```text
 init:
