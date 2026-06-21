@@ -283,20 +283,20 @@ ShowChoiceButton:
 > [!IMPORTANT]
 > Данные команды работают **только на платформе Windows**. На других операционных системах они будут автоматически пропущены движком. Вызов диалоговых окон происходит синхронно, останавливая основной поток игры (графика, музыка и анимации останавливаются).
 
-* **Вызов системного окна (`_WinApi_MessageBox`):**<br>
+* **Вызов системного окна:**<br>
   `_WinApi_MessageBox -> [ID_Окна] -> [Заголовок] -> [Текст_Сообщения] -> [Тип_Кнопок] -> [Иконка]`
 
-  *Доступные типы кнопок (`Buttons`):*<br>
-  `OK`, `OKCancel`, `AbortRetryIgnore`, `YesNoCancel`, `YesNo`, `RetryCancel`, `CancelTryAgainContinue`
+  * *Доступные типы кнопок:*<br>
+    `OK`, `OKCancel`, `AbortRetryIgnore`, `YesNoCancel`, `YesNo`, `RetryCancel`, `CancelTryAgainContinue`
   
-  *Доступные иконки (`Icons`):*<br>
-  `Error`, `Question`, `Warning`, `Information`
+  * *Доступные иконки:*<br>
+    `Error`, `Question`, `Warning`, `Information`
 
-* **Обработка результата нажатия (`_WinApi_MessageBoxResult`):**<br>
+* **Обработка результата нажатия:**<br>
   `_WinApi_MessageBoxResult: [ID_Окна] -> [Ожидаемая_Кнопка]`
 
-  *Доступные варианты кнопок для проверки:*<br>
-  `OK`, `Cancel`, `Abort`, `Retry`, `Ignore`, `Yes`, `No`, `TryAgain`, `Continue`
+  * *Доступные варианты кнопок для проверки:*<br>
+    `OK`, `Cancel`, `Abort`, `Retry`, `Ignore`, `Yes`, `No`, `TryAgain`, `Continue`
 
 > [!WARNING]
 > Нажатия сохраняются в переменную формата `->WinApi_DialogResult_[ID_Окна]`, можно отображать результат нажатия для отладки в тексте *(см. блок 4 - вывод переменных)*.<br>
