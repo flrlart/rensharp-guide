@@ -299,11 +299,11 @@ ShowChoiceButton:
   `OK`, `Cancel`, `Abort`, `Retry`, `Ignore`, `Yes`, `No`, `TryAgain`, `Continue`
 
 > [!WARNING]
-> Нажатия сохраняются в переменную формата `->WinApi_MessageBoxResult_[ID_Окна]`, можно отображать результат нажатия для отладки в тексте *(см. блок 4 - вывод переменных)*.<br>
+> Нажатия сохраняются в переменную формата `->WinApi_DialogResult_[ID_Окна]`, можно отображать результат нажатия для отладки в тексте *(см. блок 4 - вывод переменных)*.<br>
 > **Пример**:
 > ```
-> _WinApi_MessageBox -> result -> Привет! -> Нажми одну из кнопок ниже: -> YesNo -> Information
-> Show: "DEBUG/FFFFFFFF" -> "Пользователь нажал: $(->WinApi_MessageBoxResult_result)."
+> _WinApi_MessageBox -> result -> Привет! -> Нажми одну из кнопок ниже -> YesNo -> Information
+> Show: "DEBUG/FFFFFFFF" -> "Пользователь нажал: $(->WinApi_DialogResult_result)."
 > ```
 
 ### 📋 Пример использования
