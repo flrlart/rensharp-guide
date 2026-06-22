@@ -372,45 +372,45 @@ winapi_example:
 	SetClickBlocked -> true
 	
 	_WinApi_MessageBox -> -> E1106 -> ЗАЧЕМ ТЫ ВРЁШЬ -> OK -> Error
-	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_SetCursorPosRelative: 0.3;0.8
 	_WinApi_MessageBox -> -> E1106 -> Я ВЕДЬ ВСЁ ЗНАЮ -> OK -> Error
-	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_SetCursorPosRelative: 0.3;0.8
 	_WinApi_MessageBox -> -> E1106 -> Я ВСЕГДА ПРАВА -> OK -> Error
-	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_SetCursorPosRelative: 0.3;0.8
 	_WinApi_MessageBox -> -> E1107 -> ХВАТИТ ЛОМАТЬ ИГРУ -> OK -> Warning
-	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_SetCursorPosRelative: 0.3;0.8
 	_WinApi_MessageBox -> -> E1108 -> СМОТРИ МНЕ В ГЛАЗА -> OK -> Error
 	
 	CameraEffect: VerticalShake -> Punch
 	Show: ".../262626FF" -> "<speed=5><shake><b>ТЫ МНЕ</b></shake>"
-	_WinApi_SetCursorPosRelative -> 0.1;0.3
+	_WinApi_SetCursorPosRelative: 0.1;0.3
 	Delay -> 0.4
 	
 	CameraEffect: HorizontalShake -> LightShortShake
 	Show: ".../262626FF" -> "<speed=5><shake><b>СОВРАЛ</b></shake>"
-	_WinApi_SetCursorPosRelative -> 0.5;0.4
+	_WinApi_SetCursorPosRelative: 0.5;0.4
 	Delay -> 0.4
 	
 	CameraEffect: VerticalShake -> HeavyShortShake
 	Show: ".../262626FF" -> "<speed=5><shake><b>МРАЗЬ</b></shake>"
-	_WinApi_SetCursorPosRelative -> 1;1
+	_WinApi_SetCursorPosRelative: 1;1
 	Delay -> 0.5
 
 	Show: ".../262626FF" -> "<speed=6><shake><b>ТВАРЬ</b></shake>"
-	_WinApi_SetCursorPosRelative -> 0;1
+	_WinApi_SetCursorPosRelative: 0;1
 	Delay -> 0.4
 
 	CameraEffect: HorizontalShake -> HeavyShortShake
 	Show: ".../262626FF" -> "<speed=6><shake><b>ЛЖЕЦ</b></shake>"
-	_WinApi_SetCursorPosRelative -> 0.8;0.2
+	_WinApi_SetCursorPosRelative: 0.8;0.2
 	Delay -> 0.4
 
 	_WinApi_MessageBox -> -> E1109 -> НЕНАВИЖУ -> OK -> Error
-	_WinApi_SetCursorPosRelative -> 0;0
+	_WinApi_SetCursorPosRelative: 0;0
 	_WinApi_MessageBox -> -> E1109 -> НЕНАВИЖУ -> OK -> Error
-	_WinApi_SetCursorPosRelative -> 0;0
+	_WinApi_SetCursorPosRelative: 0;0
 	_WinApi_MessageBox -> -> E1109 -> НЕНАВИЖУ -> OK -> Error
-	_WinApi_SetCursorPosRelative -> 0;0
+	_WinApi_SetCursorPosRelative: 0;0
 	
 	SetClickBlocked -> false
 ```
