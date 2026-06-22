@@ -366,7 +366,48 @@ GoTo: clicked_cancel
   # ставит курсор в центр экрана (X = 0.5, Y = 0.5)
   _WinApi_SetCursorPosRelative: 0.5;0.5
   ```
-## 🖱 11. Пример использования WinApi
+## 🖱 11. Примеры
+<details>
+<summary>Пример использования Call (функций)</summary>
+
+```text
+mouse_glitch:
+	SetClickBlocked -> true
+	_WinApi_SetCursorPosRelative: 0.15;0.82
+	Delay -> 0.05
+	_WinApi_SetCursorPosRelative: 0.74;0.23
+	Delay -> 0.1
+	_WinApi_SetCursorPosRelative: 0.33;0.09
+	Delay -> 0.05
+	_WinApi_SetCursorPosRelative: 0.91;0.76
+	Delay -> 0.08
+	_WinApi_SetCursorPosRelative: 0.05;0.45
+	Delay -> 0.05
+	_WinApi_SetCursorPosRelative: 0.62;0.12
+	Delay -> 0.1
+	_WinApi_SetCursorPosRelative: 0.88;0.95
+	Delay -> 0.04
+	_WinApi_SetCursorPosRelative: 0.21;0.37
+	Delay -> 0.1
+	_WinApi_SetCursorPosRelative: 0.50;0.50
+	Delay -> 0.2
+	SetClickBlocked -> false
+
+story:
+	Show: "Система/FFFFFFFF" -> "Сейчас мышку немного потрясёт."
+	Delay: 1.0
+	Call: mouse_glitch
+story_1:
+	Show: "Система/FFFFFFFF" -> "Хочешь ещё?"
+story_2:
+	Call: mouse_glitch
+```
+	
+</details>
+
+<details>
+<summary>Пример использования WinApi</summary>
+	
 ```text
 winapi_example:
 	SetClickBlocked -> true
@@ -414,9 +455,11 @@ winapi_example:
 	
 	SetClickBlocked -> false
 ```
+</details>
 
-## 12. Пример обычного скрипта
-
+<details>
+<summary>Пример обычного скрипта</summary>
+	
 ```text
 init:
     ChangeTextSpeed -> 3500
@@ -470,3 +513,4 @@ steal_money:
 quit:
     Exit
 ```
+</details>
