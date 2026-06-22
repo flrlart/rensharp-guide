@@ -75,13 +75,15 @@ Show: "Алиса/#FF8900FF" -> "Привет, $(player_name)!"
 Show: "Рассказчик/#FFFFFFFF" -> "Вокруг стояла гробовая тишина..."
 ```
 
-
 * **Изменение скорости печати текста:** `ChangeTextSpeed -> Число`
 ```text
 ChangeTextSpeed -> 2000
 ```
 
-
+* **Заблокировать нажатия:** `SetClickBlocked -> Значение`
+```text
+SetClickBlocked -> true
+```
 
 ### 🔮 Кастомные теги для текста (TextMeshPro)
 
@@ -129,7 +131,7 @@ AddInt: money -> 100      # Прибавить 100 к переменной
 AddInt: money -> -50      # Отнять 50 из переменной
 SetBool: met_alice -> true # Установить логический флаг (true/false)
 ```
-
+* **Задержка:** `Delay: время (0.5)` — Задержка между выполнением функций в блоке, пример см. блок 11.
 * **Принудительное завершение:** `Exit` — мгновенно прерывает сценарий, выгружает мод и возвращает игрока в Главное Меню.
 
 ---
@@ -364,8 +366,56 @@ GoTo: clicked_cancel
   # ставит курсор в центр экрана (X = 0.5, Y = 0.5)
   _WinApi_SetCursorPosRelative: 0.5;0.5
   ```
+## 🖱 11. Пример использования WinApi
+```text
+winapi_example:
+	SetClickBlocked -> true
+	
+	_WinApi_MessageBox -> -> E1106 -> ЗАЧЕМ ТЫ ВРЁШЬ -> OK -> Error
+	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_MessageBox -> -> E1106 -> Я ВЕДЬ ВСЁ ЗНАЮ -> OK -> Error
+	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_MessageBox -> -> E1106 -> Я ВСЕГДА ПРАВА -> OK -> Error
+	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_MessageBox -> -> E1107 -> ХВАТИТ ЛОМАТЬ ИГРУ -> OK -> Warning
+	_WinApi_SetCursorPosRelative -> 0.3;0.8
+	_WinApi_MessageBox -> -> E1108 -> СМОТРИ МНЕ В ГЛАЗА -> OK -> Error
+	
+	CameraEffect: VerticalShake -> Punch
+	Show: ".../262626FF" -> "<speed=5><shake><b>ТЫ МНЕ</b></shake>"
+	_WinApi_SetCursorPosRelative -> 0.1;0.3
+	Delay -> 0.4
+	
+	CameraEffect: HorizontalShake -> LightShortShake
+	Show: ".../262626FF" -> "<speed=5><shake><b>СОВРАЛ</b></shake>"
+	_WinApi_SetCursorPosRelative -> 0.5;0.4
+	Delay -> 0.4
+	
+	CameraEffect: VerticalShake -> HeavyShortShake
+	Show: ".../262626FF" -> "<speed=5><shake><b>МРАЗЬ</b></shake>"
+	_WinApi_SetCursorPosRelative -> 1;1
+	Delay -> 0.5
 
-## 🚀 11. Полный пример готового скрипта
+	Show: ".../262626FF" -> "<speed=6><shake><b>ТВАРЬ</b></shake>"
+	_WinApi_SetCursorPosRelative -> 0;1
+	Delay -> 0.4
+
+	CameraEffect: HorizontalShake -> HeavyShortShake
+	Show: ".../262626FF" -> "<speed=6><shake><b>ЛЖЕЦ</b></shake>"
+	_WinApi_SetCursorPosRelative -> 0.8;0.2
+	Delay -> 0.4
+
+	_WinApi_MessageBox -> -> E1109 -> НЕНАВИЖУ -> OK -> Error
+	_WinApi_SetCursorPosRelative -> 0;0
+	_WinApi_MessageBox -> -> E1109 -> НЕНАВИЖУ -> OK -> Error
+	_WinApi_SetCursorPosRelative -> 0;0
+	_WinApi_MessageBox -> -> E1109 -> НЕНАВИЖУ -> OK -> Error
+	_WinApi_SetCursorPosRelative -> 0;0
+	
+	SetClickBlocked -> false
+```
+
+## 12. Пример обычного скрипта
 
 ```text
 init:
